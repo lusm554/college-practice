@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Массивы_JavaScript_Молчанов_21ИС-18</title>
+</head>
+<body>
+    <div>
+        <button id="task1">Задание 1</button> <br>
+        <button id="task2">Задание 2</button> <br>
+        <button id="task3">Задание 3</button> <br>
+        <button id="task4">Задание 4</button> <br>
+        <button id="task5">Задание 5</button> <br>
+    </div>
+    <script>
+        const elem = (name) => document.getElementById(name)
+
+        elem('task1').addEventListener('click', t1)
+        elem('task2').addEventListener('click', t2)
+        elem('task3').addEventListener('click', t3)
+        elem('task4').addEventListener('click', t4)
+        elem('task5').addEventListener('click', t5)
+
+        function t1() {
+            let arr = []
+            for (let i = 1; i <= 10; i++) {
+                arr.push(i)
+            }
+            alert('arr = [' + arr + ']')
+        }
+
+        function t2() {
+            let nums = []
+            for (let i = 2; i <= 100; i += 2) {
+                nums.push(i)
+            }
+            alert('nums = [' + nums + ']')
+        }
+
+        function t3() {
+            let nums = [20, 30, 40, 50]
+            let len = nums.length
+            for (let i = 1; i <= (len * 4); i++) {
+                nums.push(i)
+            }
+            alert('nums = [' + nums.join('\n') + ']')
+        }
+
+        function t4() {
+            let arr = ['Джаз', 'Блюз']
+            arr.push('Рок-н-Ролл')
+            arr[arr.length-2] = 'Классика'
+            arr.shift()
+            arr.unshift('Реп', 'Регги')
+            alert('arr = [' + arr + ']')
+        }
+
+        function t5() {
+            let arr = []
+            for (let i = 1; i <= 15; i += 2) {
+                arr.push(i)
+            }
+            alert('arr = [' + arr + ']')
+        }
+    </script>
+</body>
+</html>

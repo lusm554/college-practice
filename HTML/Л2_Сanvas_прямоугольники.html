@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Л2_Сanvas_прямоугольники Молчанов</title>
+</head>
+<body>
+    <div>
+        <button id="task1">Пример 1</button> <br>
+        <button id="task2">Пример 2</button> <br>
+        <button id="task3">Пример 3</button> <br>
+        <button id="task4">Пример 4</button> <br>
+        <button id="task5">Пример 5</button> <br>
+        <button id="task6">Пример 6</button> <br>
+        <button id="task7">Задание 7</button> <br>
+    </div>
+    <br>
+
+    <canvas id="can" width="400" height="300" style="border: 1px solid blue"></canvas>
+
+    <script>
+        const elem = (name) => document.getElementById(name)
+
+        elem('task1').addEventListener('click', t1)
+        elem('task2').addEventListener('click', t2)
+        elem('task3').addEventListener('click', t3)
+        elem('task4').addEventListener('click', t4)
+        elem('task5').addEventListener('click', t5)
+        elem('task6').addEventListener('click', t6)
+        elem('task7').addEventListener('click', t7)
+
+        function get_ctx() {
+            const canvas = document.getElementById('can')
+            canvas.height = 300
+            canvas.width = 400
+            let ctx = canvas.getContext('2d')
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            return [ctx, canvas]
+        }
+
+        function t1() {
+            let [ctx] = get_ctx()
+
+            ctx.beginPath();       // Start a new path
+            ctx.moveTo(50, 50);    // Move the pen to (30, 50)
+            ctx.lineTo(150, 50);   // Draw a line to (150, 100)
+            ctx.stroke();          // Render the path
+        }
+
+        function t2() {
+            let [ctx] = get_ctx()
+            ctx.beginPath()
+            ctx.rect(0, 0, 40, 40)
+            ctx.fill()
+            ctx.stroke()
+        }
+
+        function t3() {
+            let [ctx, canvas] = get_ctx()
+            canvas.width = 200
+            canvas.height = 90
+
+            ctx.beginPath()
+            ctx.strokeStyle = 'green'
+            ctx.fillStyle = 'blue'
+            ctx.shadowBlur = 10
+            ctx.shadowColor = 'brown'
+            ctx.rect(10, 30, 70, 40)
+            ctx.fill()
+            ctx.stroke()
+        }
+
+        function t4() {
+            let [ctx] = get_ctx()
+            ctx.beginPath()
+
+            ctx.fillStyle = 'rgb(200, 0, 0)'
+            ctx.fillRect(10, 10, 55, 50)
+
+            ctx.fillStyle = 'rgba(0, 0, 200, 0.5)'
+            ctx.fillRect(30, 30, 55, 50)
+
+            ctx.fillStyle = 'rgb(200, 0, 0)'
+            ctx.fillRect(50, 50, 55, 50)
+
+            ctx.fillStyle = 'rgba(0, 0, 200, 0.5)'
+            ctx.fillRect(70, 70, 55, 50)
+
+            ctx.fill()
+            ctx.stroke()
+        }
+
+        function t5() {
+            let [ctx] = get_ctx()
+            ctx.beginPath()
+
+            for (let i = 0; i < 8; i++) {
+                ctx.fillStyle = 'red'
+                ctx.fillRect(i*20, i*20, 20, 20)
+            }
+        }
+
+        function t6() {
+            let [ctx, canvas] = get_ctx()
+
+            ctx.lineWidth = 5
+            function square(side, x, color) {
+                ctx.strokeStyle = color;
+                ctx.strokeRect(x, 10, side, side)
+                ctx.stroke()
+            }
+
+            square(15, 5, 'red')
+            square(35, 65, 'orange')
+            square(55, 165, 'yellow')
+            square(75, 305, 'purple')
+        }
+
+        function t7() {
+            let [ctx] = get_ctx()
+            ctx.beginPath()
+            ctx.strokeStyle = 'black'
+
+            let side = 15
+            for (let i = 0; i < 6; i++) {
+                ctx.strokeRect(0, 0, side, side)
+                side += 15
+            }
+            ctx.stroke()
+        }
+    </script>
+</body>
+</html>

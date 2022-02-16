@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>26.10_Л_8_Цикл_while_Молчанов_21ИС-18</title>
+</head>
+<body>
+    <button id="task1">1. Магниты с фрагментами программы JavaScript перепутались. Сможете ли вы расставить их по порядку, чтобы получить работоспособную программу JavaScript.</button> <br>
+    <div id="result1"></div>
+    <button id="task2">2. Напишите программу, которая выводила бы 10 строчек таким образом, чтобы в первая строчка состояла из одной буквы А, вторая их двух букв А, и т.д.</button> <br>
+    <div id="result2"></div>
+    <button id="task3">3. Выведите столбец чисел от 1 до 50</button> <br>
+    <div id="result3"></div>
+
+    <script>
+        const set = (name, cb) => document.getElementById(name).addEventListener('click', cb)
+        set("task1", task1)
+        set("task2", task2)
+        set("task3", task3)
+
+        function task1() {
+            document.getElementById("result1").innerHTML = ""
+            let i = 0;
+            let name = "Joe";
+            while (i < 2) {
+                document.getElementById("result1").innerHTML += "Happy Brithday to you.<br>"
+                i++
+            }
+            document.getElementById("result1").innerHTML += `Happy Brithday dear ${name}.<br>`
+            document.getElementById("result1").innerHTML += "Happy Brithday to you.<br>"
+        }
+
+        function task2() {
+            document.getElementById("result2").innerHTML = ""
+            let i = 1;
+            let sym = "A";
+            while (i <= 10) {
+                document.getElementById("result2").innerHTML += `${sym.repeat(i)}<br>`
+                i++;
+            }
+        }
+
+        function task3() {
+            document.getElementById("result3").innerHTML = ""
+            let i = 1;
+            while (i <= 50) {
+                document.getElementById("result3").innerHTML += `${i}<br>`
+                i++
+            }
+        }
+    </script>
+</body>
+</html>

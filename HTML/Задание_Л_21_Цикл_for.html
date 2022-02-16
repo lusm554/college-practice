@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>л_3_линейные задачи_js</title>
+</head>
+<body>
+    <div>
+        <button id="task1">1. Выведите столбец чисел от 1 до 20</button> <br>
+        <button id="task2">2. Выведите в столбик фразу «Привет!» 5 раз</button> <br>
+        <button id="task3">3. Выведите в строчку числа от 1 до 30.</button> <br>
+        <button id="task4">4. Дан объект obj. С помощью цикла for-in выведите на экран ключи и элементы этого объекта. var obj = {green: 'зеленый', red: 'красный', blue: 'голубой'}</button> <br>
+    </div>
+    <script>
+        const elem = (name) => document.getElementById(name)
+
+        elem('task1').addEventListener('click', t1)
+        elem('task2').addEventListener('click', t2)
+        elem('task3').addEventListener('click', t3)
+        elem('task4').addEventListener('click', t4)
+
+        function t1() {
+            n = []
+            for (let i = 1; i <= 20; i++) {
+                n.push(i)
+            }
+            alert(n.join('\n'))
+        }
+        function t2() {
+            f = []
+            s = "Привет!"
+            for (let i = 0; i < 5; i++) {
+                f.push(s)
+            }
+            alert(f.join('\n'))
+        }
+        function t3() {
+            s = ""
+            for (let i = 1; i <= 30; i++) {
+                s += i + " "
+            }
+            alert(s)
+        }
+        function t4() {
+            let obj = {
+                green: 'зеленый',
+                red: 'красный', 
+                blue: 'голубой'
+            }
+            for (let [key, val] of Object.entries(obj)) {
+                alert(`${key} ${val}`)
+            }
+        }
+    </script>
+</body>
+</html>

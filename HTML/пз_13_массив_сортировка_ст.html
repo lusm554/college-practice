@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>пз_13_массив_сортировка_ст_Молчанов_21ИС-18</title>
+</head>
+<body>
+    <div>
+        <button id="task1">Задание 1</button> <br>
+        <button id="task2">Задание 2</button> <br>
+        <button id="task3">Задание 3</button> <br>
+        <button id="task4">Задание 4</button> <br>
+        <button id="task5">Задание 5</button> <br>
+        <button id="task6">Задание 6</button> <br>
+    </div>
+    <script>
+        const elem = (name) => document.getElementById(name)
+
+        elem('task1').addEventListener('click', t1)
+        elem('task2').addEventListener('click', t2)
+        elem('task3').addEventListener('click', t3)
+        elem('task4').addEventListener('click', t4)
+        elem('task5').addEventListener('click', t5)
+        elem('task6').addEventListener('click', t6)
+
+        function t1() {
+            let arr = []
+            for (let i = 1; i <= 10; i++) {
+                let s = ''
+                for (let j = 0; j < i; j++) {
+                    s += '*'
+                }
+                arr.push(s)
+            }
+            alert(arr)
+        }
+
+        function t2() {
+            let arr = []
+            for (let i = 1; i < 10; i++) {
+                let s = ''
+                for (let j = 0; j < i; j++) {
+                    s += i
+                }
+                arr.push(s)
+            }
+            alert(arr)
+        }
+
+        function t3() {
+            let ra = Array.from({length: 20}, () => Math.floor(Math.random() * 100));
+            let cp = ra.concat([])
+
+            for (let i = 0; i < ra.length; i++) {
+                for (let j = 0; j < i; j++) {
+                    if (ra[i] > ra[j]) {
+                        let temp = ra[i]
+                        ra[i] = ra[j]
+                        ra[j] = temp
+                    }
+                }
+            }
+            alert('Before: ' + cp + '\n' + 'After:\n' + ra)
+        }
+
+        function t4() {
+            function arrayFI(val, count) {
+                return Array(count).fill(val)
+            }
+            let val = prompt('value?')
+            let count = prompt('count?')
+            alert(arrayFI(val, +count))
+        }
+
+        function t5() {
+            let arr = [1, 2, 3, 4, 5]
+            let reverse = []
+
+            for (let i = arr.length - 1; i >= 0; i--) {
+                reverse.push(arr[i])
+            }
+            alert(reverse.map(v => v**2))
+        }
+
+        function t6() {
+            let arr = Array.from({length: Math.floor(Math.random() * 10)}, () => Math.floor(Math.random() * 100));
+            let val = +prompt('number?')
+            if (val in arr) {
+                alert('Index: ' + arr.findIndex(val))
+            }
+        }
+    </script>
+</body>
+</html>

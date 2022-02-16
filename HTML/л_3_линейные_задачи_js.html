@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>л_3_линейные задачи_js</title>
+</head>
+<body>
+    <div>
+        <button id="task1">1. Дана сторона квадрата, найти периметр и площадь квадрата. Данные задаются с клавиатуры.</button> <br>
+        <button id="task2">2. Найти значение переменной X, если Х=(а+(d-12)*3)*(c-5*k), а значение переменных а, d, с, k задаются с клавиатуры. Записать комментарии</button> <br>
+        <button id="task3">3.Вывести на экран текст "лесенкой"</button> <br>
+        <pre>
+        Вася
+
+            пошел
+
+                гулять
+        </pre>
+        <button id="task4">4. Написать программу вывода на экран лесенкой трех последовательно идущих трехзначных чисел. Первое число вводит пользователь, остальные вычисляются в программе.</button> <br>
+        <pre>
+            213             101
+
+                214     или     102
+
+                    215             103
+        </pre>
+        <button id="task5">5.Составить программу вычисления вещественного числа в 10 степени, использовать вспомогательные переменные</button>
+    </div>
+
+    <script>
+        const elem = (id) => document.getElementById(id)
+        elem('task1').addEventListener('click', task1)
+        elem('task2').addEventListener('click', task2)
+        elem('task3').addEventListener('click', task3)
+        elem('task4').addEventListener('click', task4)
+        elem('task5').addEventListener('click', task5)
+
+        function task1() {
+            let a = +prompt('сторона квадрата?')
+            alert(`Периметр: ${a*4} Площадь: ${a**2}`)
+        }
+
+        function task2() {
+            // Функция для вычисления выражения
+            const X = (a, d, c, k) => (a + (d-12) * 3) * (c - 5 * k)
+            // массив для занчений переменных
+            let inputs = []
+            // запрашиваем в строгом порядке занчения переменные
+            for (let i of 'adck') {
+                inputs.push(+prompt(`${i}?`))
+            }
+            // передаем значения переменных с помощью spread syntax
+            alert(`X = ${X(...inputs)}`)
+        }
+
+        function task3() {
+            let words = ['Вася', 'пошел', 'гулять']
+            let space = ' '.repeat(10)
+            let result = words.map((elem, i) => space.repeat(i) + elem + '\n').join('\n')
+            alert(result)
+        }
+
+        function task4() {
+            let num = +prompt('число?')
+            let space = ' '.repeat(10)
+            let nums_count = 3
+            let result = [...Array(nums_count).keys()].map(i => num+i).map((elem, i) => space.repeat(i) + elem + '\n').join('\n')
+            alert(result)
+        }
+
+        function task5() {
+            let num = 23412
+            let float = num / 100
+            alert(float)
+        }
+    </script>
+</body>
+</html>
