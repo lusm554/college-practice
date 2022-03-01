@@ -1,2 +1,5 @@
 *.out
 renamed_*
+
+# Logs
+*.txt
