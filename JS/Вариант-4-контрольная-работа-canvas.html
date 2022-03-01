@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Молчанов Вариант 4 контрольная работа canvas</title>
+</head>
+<body>
+   <div>
+       <p><b>Вариант 4.</b> Контрольная работа. canvas Молчанов Никита 21ИС-18</p>
+       <ol type="1">
+        <li>Нарисовать ромб с помощью линий. Цвет FireBrick, толщина пера 8.</li>
+        <li>Нарисовать 5 квадратов разного цвета расположенных на одной диагонали, использую функции (function).</li>
+        <li>Нарисовать с помощью цикла 8 окружностей разного цвета расположенных вертикально.</li>
+        <li>Нарисуйте полуокружность радиусом 30px, используя метод scale() выполните увеличение в 3 раза. Сдалайте надпись "Полуокружность".</li>
+      </ol>
+   </div>
+
+   <div>
+        <div id="t1">
+            <p>1.</p>
+        </div>
+        <div id="t2">
+            <p>2.</p>
+        </div>
+        <div id="t3">
+            <p>3.</p>
+        </div>
+        <div id="t4">
+            <p>4.</p>
+        </div>
+   </div>
+
+   <script>
+        const get_div = (id) => document.getElementById(id)
+        const colors = ['blue', 'red', 'black', 'yellow', 'green', 'FireBrick', 'orange', 'LightCoral', 'DarkSalmon']
+
+        function get_canvas(id) {
+            const elem = `<canvas id="c${id}" width="400" height="300"></canvas>`
+            get_div(`t${id}`).innerHTML += elem
+
+            const canvas = document.getElementById(`c${id}`)
+            canvas.height = 300
+            canvas.width = 400
+            let ctx = canvas.getContext('2d')
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            return [ctx, canvas]
+        }
+
+        function t1() {
+            let [ctx, canvas] = get_canvas(1)
+            canvas.height = 150
+
+            const draw_line = (first_dot, second_dot) => {
+                ctx.beginPath();
+                ctx.moveTo(...first_dot); // up
+                ctx.lineTo(...second_dot);  // down
+                ctx.strokeStyle = 'FireBrick'
+                // ctx.lineWidth = 8;
+                ctx.stroke();
+            }
+
+            draw_line([50, 5], [10, 70])
+            draw_line([50, 5], [90, 70])
+            draw_line([50, 130], [10, 70])
+            draw_line([50, 130], [90, 70])
+        }
+
+        function t2() {
+            let [ctx, canvas] = get_canvas(2)
+            canvas.height = 200
+
+            const draw_box = (i, color) => {
+                ctx.fillStyle = color
+                ctx.fillRect(i*30, i*30, 30, 30)
+            }
+            for (let i = 0; i < 5; i++) {
+                draw_box(i, colors[i])
+            }
+        }
+
+        function t3() {
+            let [ctx, canvas] = get_canvas(3)
+            canvas.height = 400
+            ctx.beginPath();
+
+            for (var i = 0; i < 8; i++) {
+                for (var j = 0; j < 1; j++) {
+                    ctx.beginPath();
+                    var x = 25 + j * 50; // x coordinate
+                    var y = 25 + i * 50; // y coordinate
+                    var radius = 20; // Arc radius
+
+                    ctx.arc(x, y, radius, 20, 0, 2 * Math.PI);
+
+                    ctx.fillStyle = colors[i]
+                    ctx.fill();
+                    ctx.stroke();
+                }
+            }
+        }
+
+        function t4() {
+            let [ctx, canvas] = get_canvas(4)
+            ctx.beginPath();
+            ctx.scale(3, 3);
+
+            ctx.arc(100, 40, 30, 0, 1 * Math.PI);
+            ctx.font = 'normal 7px Facebook Letter Faces'
+            ctx.fillText('Полуокружность', 75, 50);
+            ctx.stroke();
+        }
+
+        t1()
+        t2()
+        t3()
+        t4()
+   </script>
+</body>
+</html>
