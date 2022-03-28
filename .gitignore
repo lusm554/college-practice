@@ -3,3 +3,6 @@ renamed_*
 
 # Logs
 *.txt
+
+# Nodejs
+node_modules
