@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практическая работа «Валидация кода» Молчанов</title>
+</head>
+<body>
+    <form method="get">
+        <label>Имя:
+          <input name="submitted-name" type="text" required>
+        </label> <br> 
+        <label>Группа:
+            <input name="submitted-name" type="text" required>
+        </label><br> 
+        <label>Пол:
+            <div>
+                <input type="radio" name="r" value="муж" required>
+                <label for="r">Мужской</label>
+            </div>
+            <div>
+                <input name="r" type="radio" value="жен" required>
+                <label for="r">Женский</label>
+            </div>
+        </label><br> 
+        <label>День рождения:
+            <!-- <input name="submitted-name" autocomplete="name" type="number" min="1" max="31"> -->
+            <select id="birthday_select"></select>
+        </label><br> 
+        <label>Месяц:
+            <!-- <input name="submitted-name" autocomplete="name"> -->
+            <select id="month_select"></select>
+        </label><br> 
+        <label>Год:
+            <!-- <input name="submitted-name" autocomplete="name" type="number" min="2022" max="1922"> -->
+            <select id="year_select"></select>
+        </label><br>
+        <label>ВУ:
+            <input name="submitted-name" autocomplete="name" type="checkbox">
+        </label><br> 
+        <button>Send</button>
+      </form>
+
+      <script>
+          const get = (id) => document.getElementById(id)
+
+          function dropped_list(item, range, custom=false) {
+              const select = get(item)
+              if (custom) {
+                if (custom.list) {
+                    for (i of range) {
+                        select.innerHTML += `<option value="${i}">${i}</option>`
+                    }
+                }
+                if (custom.rv) {
+                    for (let i = range[0]; i >= range[1]; i--) {
+                        select.innerHTML += `<option value="${i}">${i}</option>`
+                    }
+                }
+                return
+              }
+
+              for (let i = range[0]; i <= range[1]; i++) {
+                select.innerHTML += `<option value="${i}">${i}</option>`
+              }
+          }
+
+          dropped_list('birthday_select', [1, 31]);
+          dropped_list('month_select', ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октабрь', 'Ноябрь', 'Декабрь'], {list: true})
+          dropped_list('year_select', [2022, 1922], {rv: true});
+      </script>
+</body>
+</html>
