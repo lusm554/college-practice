@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button-img-text</title>
+</head>
+<body>
+    <h1>Nikita</h1>
+    <button id="b1">Зима</button>
+    <button id="b2">Весна</button>
+    <button id="b3">Лето</button>
+    <button id="b4">Осень</button>
+    <br> <br>
+    <img id="_img" width="512" heigh="512" src="/Users/pupkinvasa/Downloads/photo-1586902197503-e71026292412.avif" alt="Italian Trulli">
+
+    <script>
+        let get = id => document.getElementById(id)
+        const seasons = {
+            b1: "Downloads/photo-1516035645781-9f126e774e9e.avif",
+            b2: "Downloads/photo-1490750967868-88aa4486c946.avif",
+            b3: "Downloads/photo-1586902197503-e71026292412.avif",
+            b4: "Downloads/photo-1543837173-6c26bc89937b.avif"
+        }
+
+        function set(e) {
+            let id = e.target.id
+            get("_img").src = seasons[id]
+        }
+
+        get("b1").addEventListener('click', set)
+        get("b2").addEventListener('click', set)
+        get("b3").addEventListener('click', set)
+        get("b4").addEventListener('click', set)
+
+    </script>
+</body>
+</html>
