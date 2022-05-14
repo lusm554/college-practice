@@ -7,3 +7,8 @@
 - [06__No7.pdf](_static/06__No7.pdf)
 - [06__No8.pdf](_static/06__No8.pdf)
 
+
+### To execute py files like `./somefile.py`
+```bash
+chmod +x *.py
+```
