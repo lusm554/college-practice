@@ -16,25 +16,27 @@ def ex1():
 
 # 2
 def ex2():
-    khz = 44.1
-    deep = 24
     V = lambda M, I, t: M * I * t
-    min_to_sec = lambda m: m * 60
-    khz_to_hz = lambda khz: khz * 1000
+    hz = 44.1 * 1000
+    deep = 24
 
     try:
-        t_min = int(input("Введите время записи в минутах: "))
-        t_sec = min_to_sec(t_min)
+        t = int(input("Введите время записи в минутах: ")) * 60
     except Exception:
         print("Invalid input.")
     else:
-        v = V(M=khz_to_hz(khz), I=deep, t=t_sec) / (8 * 10**6)
-        print(f"Размер файла – {v} Мбайт.")
+        res = V(M=hz, I=deep, t=t) / (8 * 10**6)
+        print(f"Размер файла – {res} Мбайт.")
 
 # 3
 def ex3():
-    pass 
-
+    try:
+        n = float(input("Введите пароль: ")) ** 2
+    except Exception:
+        print("Invalid input.")
+    else:
+        n = str(n).split('.')[1][0] 
+        print(f"Ответ {n}.")
 
 def main():
     ex = {
@@ -71,3 +73,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
