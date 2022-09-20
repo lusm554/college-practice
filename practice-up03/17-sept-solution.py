@@ -7,6 +7,7 @@ from typing import Any
 # Parse input arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("-d", "--debug", help="Enable debug level", action="store_true")
+parser.add_argument("-t", "--test", help="Test program", action="store_true")
 input_args = parser.parse_args()
 
 # Get debug level. Default is WARNING.
@@ -65,11 +66,14 @@ def check_alpha_order(lst: [[Any]]) -> None:
     else:
         logging.debug("Procedure check_alpha_order done")
 
+def tests():
+    pass
 
 def main():
     input_entity = generate_input() + [['a', "b", "c"]]
     check_alpha_order(input_entity)
     logging.debug("Main done")
+
 
 
 if __name__ == "__main__":
