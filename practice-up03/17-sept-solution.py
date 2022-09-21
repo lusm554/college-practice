@@ -55,7 +55,7 @@ def check_alpha_order(lst: [[Any]]) -> None:
         Nested list of lists with ascii letters.
     """
     _res = []
-    if not all([re.match(r"[^\W\d_]", "".join(str(elem))) for elem in lst]):
+    if not all([re.match(r"[^\W\d_]", "".join(elem if type(elem[0]) == str else str(elem))) for elem in lst]):
         lst = []
     try:
         for i, elem in enumerate(lst):
@@ -74,10 +74,6 @@ def check_alpha_order(lst: [[Any]]) -> None:
     
 
 def tests():
-    # check non ascii_letters
-    # check big length
-    # check logic
-
     test_entities = {
         "ALL_ALPHA_ORDER": {
             "entity": [
@@ -108,7 +104,7 @@ def tests():
         print(f"Test: {test_name}")
         res = check_alpha_order(test['entity'])
         if len(res) != test['shouldbe']:
-            print(f"Test fail. Should be {test['shouldbe']}")
+            print(f"Test fail. Should be {test['shouldbe']}, not {len(res)}")
         else:
             print("Test success.")
 
