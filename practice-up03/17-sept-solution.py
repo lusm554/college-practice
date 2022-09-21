@@ -3,6 +3,7 @@ import string
 import logging
 import argparse
 from typing import Any
+import re
 
 # Parse input arguments
 parser = argparse.ArgumentParser()
@@ -53,11 +54,15 @@ def check_alpha_order(lst: [[Any]]) -> None:
     lst : [[Any]]
         Nested list of lists with ascii letters.
     """
+    _res = []
+    if not all([re.match(r"[^\W\d_]", "".join(str(elem))) for elem in lst]):
+        lst = []
     try:
         for i, elem in enumerate(lst):
             if elem == sorted(elem) and len(elem) > 0:
                 logging.debug(f"Array {i} in alpha order: {elem}")
                 print(f"An array of {i} in alphabetical order")
+                _res.append(elem)
             else:
                 logging.debug(f"Array {i} not in alpha order: {elem}")
     except Exception as err:
@@ -65,14 +70,56 @@ def check_alpha_order(lst: [[Any]]) -> None:
         raise err
     else:
         logging.debug("Procedure check_alpha_order done")
+    if input_args.test: return _res
+    
 
 def tests():
-    pass
+    # check non ascii_letters
+    # check big length
+    # check logic
+
+    test_entities = {
+        "ALL_ALPHA_ORDER": {
+            "entity": [
+                ['I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q'],
+                ['m', 'n', 'o', 'p', 'q', 'r', 's', 't'],
+                ['x', 'y']
+            ],
+            "shouldbe": 3
+        },
+        "SEVERAL_ALPHA_ORDER": {
+            "entity": [
+                ['k', 'l', 'm', 'n'],
+                ['H', 'B']
+            ],
+            "shouldbe": 1
+        },
+        "EMPTY_ARR": {
+            "entity": [],
+            "shouldbe": 0
+        },
+        "NON_ASCII": {
+            "entity": [[1, 2, 3, 4]],
+            "shouldbe": 0
+        }
+    }
+
+    for test_name, test in test_entities.items():
+        print(f"Test: {test_name}")
+        res = check_alpha_order(test['entity'])
+        if len(res) != test['shouldbe']:
+            print(f"Test fail. Should be {test['shouldbe']}")
+        else:
+            print("Test success.")
 
 def main():
-    input_entity = generate_input() + [['a', "b", "c"]]
-    check_alpha_order(input_entity)
-    logging.debug("Main done")
+    # bad solution
+    if input_args.test:
+        tests()
+    else:
+        input_entity = generate_input() + [['a', "b", "c"]]
+        check_alpha_order(input_entity)
+        logging.debug("Main done")
 
 
 
