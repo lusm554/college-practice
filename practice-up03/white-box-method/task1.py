@@ -4,8 +4,8 @@ def check_sum_of2(trgl: dict) -> None:
             if iside == jside: break
             #print(f"{iside=} {jside=}")
             anside = "ABC".replace(iside, "").replace(jside, "")
-            if (ival + jval) < trgl[anside]:
-                raise ValueError(f"Sum of {jside} and {iside} should not be smaller than {anside} side")
+            if (ival + jval) <= trgl[anside]:
+                raise ValueError(f"Sum of {jside} and {iside} should not be smaller or qual than {anside} side")
 
 def get_triangle() -> dict:
     trgl = dict(A=None, B=None, C=None) 
