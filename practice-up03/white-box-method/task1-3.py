@@ -2,7 +2,6 @@ def check_sum_of2(trgl: dict) -> None:
     for iside, ival in trgl.items():
         for jside, jval in trgl.items():
             if iside == jside: break
-            #print(f"{iside=} {jside=}")
             anside = "ABC".replace(iside, "").replace(jside, "")
             if (ival + jval) <= trgl[anside]:
                 raise ValueError(f"Sum of {jside} and {iside} should not be smaller or qual than {anside} side")
@@ -21,18 +20,28 @@ def get_triangle() -> dict:
 def show_trgl_info(trgl: dict) -> None:
     target = len(set(trgl.values()))
 
-    a, b, c = trgl.values()
+    a, b, c = (trgl.values())
     s = sum(trgl.values()) / 2
     area = (s*(s-a)*(s-b)*(s-c)) ** 0.5
 
     print()
-    if target == 3:
-        print("Разносторонний треугольник.")
-    elif target == 2:
-        print("Равнобедренный треугольник.")
-    elif target == 1:
-        print("Равносторонний треугольник.")
+    task = int(input("Which task(1,3)? "))
+    if task == 1:
+        if target == 3:
+            print("Разносторонний треугольник.")
+        elif target == 2:
+            print("Равнобедренный треугольник.")
+        elif target == 1:
+            print("Равносторонний треугольник.")
+    elif task == 3:
+        if a + b > c:
+            print("Остроугольный треугольник.")
+        elif a + b == c:
+            print("Прямоугольный треугольник.")
+        else: 
+            print("Тупоугольный треугольник.")
     print(f"Площадь треугольника = {area}")
+
 
 def main():
     try:
