@@ -1,3 +1,13 @@
+Table "students":
+  - student_id       - ИД студента
+  - course           - Номер курса
+  - faculty_id       - ИД факультета
+  - gender           - Половой признак
+  - birth_year       - Дата рождения
+  - age              - Возраст
+  - cnt_of_children  - Наличие/кол-во детей
+  - scholarship_amt  - Наличие/размер стипендии
+
 Table "teachers":
   - teacher_id           - ИД преподавателя
   - faculty_id           - ИД факультета
@@ -28,7 +38,30 @@ Table "Faculty":
 Table "Departments":
   - department_id - ИД кафедры
   - faculty_id    - ИД факультета
+  - name
 
 Table "Disciplines":
   - discipline_id - ИД дисциплины
   - name          - название дисциплины
+
+Table "disciplines_schedule":
+  - disciplines_schedule_id - ИД расписания дисциплины
+  - discipline_id           - ИД дисциплины
+  - semester_n              - номер семестра
+  - group_id                - ИД группы
+  - teacher_id              - ИД преподавателя
+  - type                    - виды занятий 
+  - duration_time           - время занятия
+
+Table "Session":
+  - session_id               - ИД сессии
+  - disciplines_schedule_id  - ИД расписания дисциплин
+  - discipline_id            - ИД дисциплины
+  - grade                    - оценка
+  - date
+ 
+Table "Graduate_works":
+  - gr_work_id    - ИД дипломной работы
+  - student_id    - ИД студента
+  - leader_gw_id  - ИД руководителей дипломных работ 
+  - name

@@ -19,3 +19,11 @@ for t, v in r.items():
     shape = \
     f"""CREATE TABLE {t} (\n{fields}\n);"""
     print(shape)
+    print()
+    
+    fields = ",".join(["NULL" if i==0 else " " for i, vi in enumerate(v)])
+    shape = \
+    f"""INSERT INTO {t}\nVALUES\n    ({fields})"""
+    print(shape)
+    print()
+    print()
