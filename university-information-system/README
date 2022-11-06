@@ -1,5 +1,55 @@
 Вариант 11: Информационная система ВУЗа.
 
+Data Base Schema.
+
+Tables:
+  - students
+  - teachers
+  - диссертаций
+  - Faculty
+  - Departments
+  - Disciplines (add Discipline type)
+  - Schedule of Disciplines
+  - Session (list of exams and tests)
+  - Graduate-work
+
+Table "students":
+  - student_id       - ИД студента
+  - course           - Номер курса
+  - faculty_id       - 
+  - gender           - 
+  - birth_year       - 
+  - age              - 
+  - cnt_of_children  - 
+  - scholarship_amt  -
+
+Table "teachers":
+  - teacher_id
+
+Table "dissertations":
+  - dissertation_id
+
+Table "Faculty":
+  - faculty_id
+
+Table "Departments":
+  - department_id
+
+Table "Disciplines":
+  - discipline_id
+
+Table "disciplines_schedule":
+  - disciplines_schedule_id
+
+Table "Session":
+  - session_id
+
+Table "Graduate_works":
+  - gr_work_id
+
+
+Info about system.
+
         Студенты, организованные в группы, учатся на одном из факультетов, возглавляемом деканатом, в функции которого входит контроль за учебным
 процессом. В учебном процессе участвуют преподаватели кафедр, административно относящиеся к одному из факультетов. Преподаватели подразделяются на следующие категории: ассистенты, преподаватели, старшие преподаватели, доценты, профессора. Ассистенты и преподаватели могут обучаться в аспирантуре, ст. преподаватели, доценты, могут возглавлять научные темы, профессора – научные направления.
         Преподаватели любой из категории в свое время могли защитить
