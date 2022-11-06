@@ -1,0 +1,34 @@
+Table "teachers":
+  - teacher_id           - ИД преподавателя
+  - faculty_id           - ИД факультета
+  - category             - Категория преподавателя (ассистенты, доценты, профессора)
+  - gender               - Половой признак
+  - birth_year           - Дата рождения
+  - age                  - Возраст
+  - cnt_of_children      - Наличие/кол-во детей
+  - salary_amt           - Размер стипендии
+  - is_graduate_student  - Является ли аспирантом
+
+Table "groups":
+  - group_id      - ИД группы
+  - name          - название группы
+  - course        - номер курса
+  - faculty_id    - ИД факультета
+  - department_id - ИД кафедры
+
+Table "dissertations":
+  - dissertation_id   - ИД диссертации
+  - author_id         - ИД автора 
+  - defense_date      - дата защиты диссертации
+  - title             - название диссертации
+
+Table "Faculty":
+  - faculty_id - ИД факультета
+
+Table "Departments":
+  - department_id - ИД кафедры
+  - faculty_id    - ИД факультета
+
+Table "Disciplines":
+  - discipline_id - ИД дисциплины
+  - name          - название дисциплины
