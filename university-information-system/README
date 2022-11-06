@@ -54,6 +54,7 @@ Table "Faculty":
 Table "Departments":
   - department_id - ИД кафедры
   - faculty_id    - ИД факультета
+  - name
 
 Table "Disciplines":
   - discipline_id - ИД дисциплины
@@ -73,11 +74,13 @@ Table "Session":
   - disciplines_schedule_id  - ИД расписания дисциплин
   - discipline_id            - ИД дисциплины
   - grade                    - оценка
+  - date
  
 Table "Graduate_works":
   - gr_work_id    - ИД дипломной работы
   - student_id    - ИД студента
   - leader_gw_id  - ИД руководителей дипломных работ 
+  - name
 
 
 факультеты - отделения по специальностям
