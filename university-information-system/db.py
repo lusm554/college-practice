@@ -39,8 +39,15 @@ if __name__ == "__main__":
     # Connect, set tables, insert sample data
     db = DB()
 
-    res = db.cur.execute("select * from students")
-    print(res.fetchall())
+    tables = ['students', 'teachers', 'groups', 'dissertations', 'Faculty',
+     'Departments', 'Disciplines', 'disciplines_schedule', 'Session',
+     'Graduate_works']
+
+    for t in tables:
+        print(t)
+        res = db.cur.execute(f"select * from {t}")
+        print(res.fetchall())
+        print()
 
 
 
